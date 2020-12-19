@@ -1,27 +1,20 @@
-# MyNgApp
+# Project Files specifications
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+1. package.json
+Contains all runtime packages and development time packages, that includes
+standard angular packages foer runtime and packages for testing at development time
+1a. Angular Depedencies at runtime
+tslib.js, used for transpilation of TypeScript code into JavaScript and manage the 'polyfills' for browser compatibility
+Polyfills, will make sure that the transpiled code is executed across all browsers
+1b. zone.js, log the stacktrace and error handling in the browser while the Angular app executes in browser.
+1c. rxjs, React Extension for JavaScript, used when the Angular app makes external AJAX calls and want to perform state management.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+2. tsconfig.json, its variations tsconfig.app.json, tsconfig.spec.json
+tsconfig.json, the TypeScript Configurations for Transpilations, VAriable Declaration Strict Mode and the Module Resolutions using Node.js.
+tsconfig.app.json, use the tsconfig.js and load the polyfills to execute code across all browsers and set the entry point for Application's source code tp transpile
+tsconfig.spec.json, used to load the Testing Script to test Angular Application.
 
-## Code scaffolding
+3. karma.config.js, contains the Testing-Engine Automation to run testscripts
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+4. angular.json, the file for Build, Production and Testing
