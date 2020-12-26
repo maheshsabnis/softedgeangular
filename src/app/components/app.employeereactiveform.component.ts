@@ -8,6 +8,9 @@ import { CustomValidator } from "./app.custom.validator";
 
 import { Employee } from "./../models/app.emp.model";
 
+// importing constants
+import {Departments, Designations} from './../models/app.constants';
+
 @Component({
   selector: 'app-employeereactiveform-component',
   templateUrl:'./app.employeereactiveform.view.html'
@@ -18,13 +21,20 @@ export class EmployeeReactiveFormComponent implements OnInit  {
   employees: Array<Employee>;
   colums:Array<string>;
 
+
   frmEmp: FormGroup;
 
+  // store Departments and Designations locally in the component's publc properties
+
+  departments = Departments;
+  designations = Designations;
+
+
   constructor(){
-    this.emp = new Employee(0,'',0,'');
+    this.emp = new Employee(0,'',0,'', '');
     this.employees = new Array<Employee>();
-    this.employees.push(new Employee(101,"Mahesh",10000,'IT'));
-    this.employees.push(new Employee(102,"Ajay",12000, 'HR'));
+    this.employees.push(new Employee(101,"Mahesh",10000,'IT', 'Manager'));
+    this.employees.push(new Employee(102,"Ajay",12000, 'HR', 'Lead'));
     this.colums = new Array<string>();
 
     // instantiate the frmEmp and pass the employee model properties to it
@@ -43,7 +53,8 @@ export class EmployeeReactiveFormComponent implements OnInit  {
             ])),
         EmpName: new FormControl(this.emp.EmpName),
         Salary: new FormControl(this.emp.Salary),
-        DeptName: new FormControl(this.emp.DeptName)
+        DeptName: new FormControl(this.emp.DeptName),
+        Designation:  new FormControl(this.emp.Designation)
     });
 
   }
@@ -52,7 +63,7 @@ export class EmployeeReactiveFormComponent implements OnInit  {
 
   clear():void {
     // re-assign the employee object
-    this.emp = new Employee(0,'',0,'');
+    this.emp = new Employee(0,'',0,'','');
     // pass the resetted emp object to frmEmp
     this.frmEmp.setValue(this.emp);
   }

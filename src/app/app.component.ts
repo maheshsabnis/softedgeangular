@@ -43,8 +43,8 @@ export class AppComponent implements OnInit   {
 
     this.toggle  =false;
     this.employess = new Array<Employee>();
-    this.employess.push(new Employee(101,"Mahesh",10000,'IT'));
-    this.employess.push(new Employee(102,"Ajay",12000, 'HR'));
+    this.employess.push(new Employee(101,"Mahesh",10000,'IT','Manager'));
+    this.employess.push(new Employee(102,"Ajay",12000, 'HR', 'Lead'));
 
     this.colums = new Array<string>();
 

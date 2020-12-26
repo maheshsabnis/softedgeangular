@@ -1,57 +1,47 @@
-<h2>The Reactive Form</h2>
+<h2>The  Form</h2>
 <div class="container">
   <table class="table table-striped table-bordered">
     <tbody>
       <tr>
         <td>
-          <form name="frmEmp" [formGroup]="frmEmp" (ngSubmit)="save()">
+          <form name="frmEmp">
             <div class="form-group">
               <label>EmpNo</label>
               <input type="text" name="EmpNo"
-               formControlName="EmpNo"
+              [(ngModel)]="emp.EmpNo"
               class="form-control" >
-              <div class="alert alert-danger"
-              *ngIf="frmEmp.controls.EmpNo.dirty && frmEmp.controls.EmpNo.invalid">
-              <p *ngIf="frmEmp.controls.EmpNo.errors.required">EmpNo is required</p>
-              <p *ngIf="frmEmp.controls.EmpNo.errors.minlength">EmpNo must be min 2 digits in length</p>
-              <p *ngIf="frmEmp.controls.EmpNo.errors.maxlength">EmpNo can be max 5 dights in length</p>
-              <p *ngIf="frmEmp.controls.EmpNo.errors.pattern">EmpNo must be numeric</p>
-              <!--Custom Validator-->
-              <p *ngIf="frmEmp.controls.EmpNo.errors.odd">EmpNo must be Even</p>
-            </div>
+
             </div>
             <div class="form-group">
               <label>EmpName</label>
               <input type="text"  name="EmpName"
-              formControlName="EmpName"
+              [(ngModel)]="emp.EmpName"
               class="form-control" >
             </div>
             <div class="form-group">
               <label>Sakary</label>
               <input type="text" name="Salary"
-              formControlName="Salary"
+              [(ngModel)]="emp.Salary"
               class="form-control" >
             </div>
             <div class="form-group">
               <label>DeptName</label>
-              <!-- <input type="text" name="DeptName"
-              formControlName="DeptName"
-              class="form-control" > -->
 
-              <select name="DeptName" formControlName="DeptName" class="form-control">
-                  <option *ngFor="let dept of departments" value="{{dept}}">{{dept}}</option>
-              </select>
+
+              <app-select-component name="DeptName" [DataValue]="emp.DeptName"
+               (selectedValue)="getDeptNameFromChild($event)"
+              [DataSource]="departments"></app-select-component>
             </div>
 
             <div class="form-group">
               <label>Designation</label>
-              <select name="Designation" formControlName="Designation" class="form-control">
-                  <option *ngFor="let desig of designations" value="{{desig}}">{{desig}}</option>
-              </select>
+              <app-select-component name="Designation"
+               (selectedValue)="getDesignationFromChild($event)"
+              [DataValue]="emp.Designation"  [DataSource]="designations"></app-select-component>
             </div>
             <div class="form-group">
              <input type="button" value="Clear" class="btn btn-warning" (click)="clear()">
-             <input type="submit" value="Save" class="btn btn-success">
+             <input type="button" value="Save" (click)="save()" class="btn btn-success">
             </div>
           </form>
         </td>
