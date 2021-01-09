@@ -52,7 +52,7 @@ tsconfig.spec.json, used to load the Testing Script to test Angular Application.
  1. Used to contains Utility Logic that can be reused by all components / directoves /pipes, etc.
  2. USed to contain logic for Http Calls
  3. Used to maintain the state of the data this is to be sheared across components.
-
+https://www.dotnetcurry.com/angularjs/1445/angular-services-component-communication
  =================================================================================================================================================================
 
  Angular Component Commucations
@@ -71,10 +71,41 @@ tsconfig.spec.json, used to load the Testing Script to test Angular Application.
         - The Parent Component subscribe to the value emitted from child component using Event-Binding
             <ChildComponent [DataSource]="<VALUE-TO-BE-PASSED-FROM-PARENT-COMPONENT>" (valueEmitted)="<METHOD-FROM-PARENT>($event)">
                 - $event : is the event data that is send from child component to parent component 
+    - Decoupled Communication across components
+      -             
 
  2. Using Angular Services 
 
+=====================================================================================================================================
 
+Angular Single Page App
+- Complete The Angular App
+  - How to Create Custom Directives?
+    - Component Directives
+      - UI + Data Binding + Events
+      - Reusable Component
+    - Attribute Directives
+      - ngModel, formGroup, formControlName
+      -  Custom Attribute Directive
+        - This is used to define Custom Behavior to HTML elements in Angular UI
+        - Procedure for Custo Directive
+          - Class must decorated with @Directive Decorator
+          - For the Attribute Directive, following facts are important
+              - Attribute directive is used through "Property-Binding" 
+              - The 'selector' property of @Directive Decorator must be using property bindiing syntax
+                - @Directive({selector: '[<SELECTOR-NAME>]'})
+              - The class must be constructor Injected with 
+                - Renderer2 class, used for defining HTML element rendering on which the directive is applied
+                - ElementRef, the reference of HTML element on which the directive is applied
+              - The Directive must have at-least one '@Input' decorated property that is mapped with the selector      
+                - This property will accept value for the custom directve to set its behavior
+              - The business logic method(s) that define the logic for directive 
+              - The methods those will be executed to activate the directive
+                - This method will be decorated with @HostLister('<EVENT-NAME>') class        
+                  - EVENT-NAME is the event that will cause the directve to be activated
+    - Structurel Directives 
+      - *ngFor, *ngIf, etc.
+  - How to use Pipes?
 
 
 

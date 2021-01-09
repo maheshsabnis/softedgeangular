@@ -1,3 +1,5 @@
+import { EmployeeReceiverComponent } from './components/componentcommunications/app.employee.component';
+import { DepartmentSenderComponent } from './components/componentcommunications/app.department.component';
 import { EmployeeFormComponent } from './components/employeeformcomponent/app.employeeform.component';
 import { SelectComponent } from './components/reusablecomponents/app.select.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +19,10 @@ import {HttpServiceComponent} from './components/httpservicecomponent/app.httpse
 // import the service
 import {StringUtilitiesService} from './services/app.utility.service';
 
+// importing the directive
+import { ColorDirective  } from "./directives/app.color.directive";
+
+
 // imports: an array, used to import standard Angular Modules and other custom modules
 // declarations: an array, used to declare (instantiate) all Angular components, Custom Directives
 // and custom pipes
@@ -26,7 +32,9 @@ import {StringUtilitiesService} from './services/app.utility.service';
 @NgModule({
   declarations: [
     AppComponent, EmployeeReactiveFormComponent, StringUtilityComponent,
-    HttpServiceComponent, SelectComponent, EmployeeFormComponent
+    HttpServiceComponent, SelectComponent, EmployeeFormComponent,
+    DepartmentSenderComponent,EmployeeReceiverComponent,ColorDirective
+
   ],
   imports: [
     BrowserModule, FormsModule,ReactiveFormsModule,
@@ -34,6 +42,6 @@ import {StringUtilitiesService} from './services/app.utility.service';
   ],
   // register the service in DI COntainer
   providers: [StringUtilitiesService],
-  bootstrap: [EmployeeFormComponent]
+  bootstrap: [ DepartmentSenderComponent,EmployeeReceiverComponent]
 })
 export class AppModule { }
