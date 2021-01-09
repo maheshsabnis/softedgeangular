@@ -111,6 +111,21 @@ Angular Single Page App
 
 
 
+Hands-on-Lab
+
+1. Creae a Custom Directive of name [requiredUnique] that will be used to validate the uniqueness of the EmpNo in EmployeeFormComponent. The directive will be applied as follows
+
+<input type="text" formControlName="emp.Empno" [requiredUnique]="true">,
+
+When the value is true for [requiredUnique]="true", then if the EmpNo is already present then change the color of the input element to RED
+
+2. Create a 4 Components as explained below
+  - EmployeeComponent --> Will display List of Employees as EmpNo, EmpName, Salary, Designation, DeptNo
+  - DepartmentComponent --> Will display list of Departments as DeptNo, DeptName, Location, Salary
+  - CReate a SearchComponent, this will have a input element for search.
+
+Bootstrap all 3 components. Whern End-User enters the DeptName in SearchComponent, then the DeptName will have to display in DepartmentComponent and the EmployeeComponent will Display all Employees for the DeptName across all locations. 
+
 
 
 
