@@ -107,9 +107,37 @@ Angular Single Page App
       - *ngFor, *ngIf, etc.
   - How to use Pipes?
 
+# Angular Routing
 
+@angular/router
 
-
+- Platform for implementing Single Page Application (SPA) app in Angular
+- RouterModule class  
+  - Angular Module aka NgModule
+    - Managing Route Table
+    - Manages Route Based Navigation
+      -  The RouterLink attribute Directive
+        - [routerLink]
+          - Accepts the route URL defined in Route Table
+        - The Route class is used to define a Route Expression
+          - {path:'<URL>', component:<NAME-OF-THE-COMPONENT-TO-NAVIGATE-To>, children: [<ARRAY-OF-ROUTEs>], loadChidren: <LAZY-LOADING>, redirectTo: '<DEFAULT-URL-TO-REDIRECT>'}
+        - The Routes class is sued to contain the Route collection        
+        - Router class
+          - The class used for explict route navigations
+            - The navigate() method used for explicit routing 
+        - ActivatedRoute
+          - Used for Parameterized routing
+            - {path: 'URL/:<PARAMETER>'}
+          - USed to subscribe to the the Rooute parameters 
+        - The RouterOutlet component class
+          - this class is sued to render / inject the route components when the routing is executed  
+            <router-outlet></router-outlet>
+        - Child Routig aka Sub-Routing    
+# Angular Lazy Loading
+- Feature Modules aka Shared Modules 
+- These featire modules are lazy loaded in te Main Angular Module aka root module  
+- The featre modules may have components, directives, services, etc.
+- This may also have a routing      
 
 Hands-on-Lab
 

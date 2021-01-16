@@ -1,3 +1,7 @@
+import { ChildComponent } from './routingapp/app.child.component';
+import { MainComponent } from './routingapp/app.main.component';
+import { ContactComponent } from './routingapp/app.contact.component';
+import { AboutComponent } from './routingapp/app.about.component';
 import { EmployeeReceiverComponent } from './components/componentcommunications/app.employee.component';
 import { DepartmentSenderComponent } from './components/componentcommunications/app.department.component';
 import { EmployeeFormComponent } from './components/employeeformcomponent/app.employeeform.component';
@@ -21,6 +25,7 @@ import {StringUtilitiesService} from './services/app.utility.service';
 
 // importing the directive
 import { ColorDirective  } from "./directives/app.color.directive";
+import { HomeComponent } from './routingapp/app.home.component';
 
 
 // imports: an array, used to import standard Angular Modules and other custom modules
@@ -33,7 +38,9 @@ import { ColorDirective  } from "./directives/app.color.directive";
   declarations: [
     AppComponent, EmployeeReactiveFormComponent, StringUtilityComponent,
     HttpServiceComponent, SelectComponent, EmployeeFormComponent,
-    DepartmentSenderComponent,EmployeeReceiverComponent,ColorDirective
+    DepartmentSenderComponent,EmployeeReceiverComponent,ColorDirective,
+    HomeComponent, AboutComponent, ContactComponent, MainComponent,
+     ChildComponent
 
   ],
   imports: [
@@ -42,6 +49,6 @@ import { ColorDirective  } from "./directives/app.color.directive";
   ],
   // register the service in DI COntainer
   providers: [StringUtilitiesService],
-  bootstrap: [ DepartmentSenderComponent,EmployeeReceiverComponent]
+  bootstrap: [ MainComponent]
 })
 export class AppModule { }
